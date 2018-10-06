@@ -217,7 +217,7 @@ Usage(VOID)
 {
 	printf("\nusage : EOP [-e] [-a] [-u] <DriverServiceName>\n");
 	printf("\t-a : Add/enable SE_LOAD_DRIVER Privilege (requires swisscheese.sys)\n");
-	printf("\t-e : enable SE_LOAD_DRIVER Privilege (requires swisscheese.sys and eop.exe run as admin)\n");
+	printf("\t-e : enable SE_LOAD_DRIVER Privilege (eop.exe needs to be run as admin)\n");
 	printf("\t-u : Unload Driver\n");
 }//Usage()
 
