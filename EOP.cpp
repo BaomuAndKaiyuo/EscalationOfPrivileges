@@ -244,37 +244,45 @@ main(
 	BOOL bEnableSeLoadDriverPrivilege = FALSE;
 	PCHAR pbDriverServiceName = NULL;
 
-	//handling the first argument
-	if (strcmp(argv[1], "/?") == 0) 
+	if (argc == 2)
 	{
-		Usage();
-		goto Exit;
-	}
-	else if (strcmp(argv[1], "-?") == 0)
-	{
-		Usage();
-		goto Exit;
-	}
-	else if (strcmp(argv[1], "-u") == 0)
-	{
-		bLoadOrUnload = FALSE;
-	}
-	else if (strcmp(argv[1], "-a") == 0)
-	{
-		bEscalateOfPrivilege = TRUE;
-	}
-	else if (strcmp(argv[1], "-e") == 0)
-	{
-		bEnableSeLoadDriverPrivilege = TRUE;
-	}
-	else 
-	{
-		Usage();
-		goto Exit;
+		pbDriverServiceName = argv[1];
 	}
 
-	//assign the driver service name
-	pbDriverServiceName = argv[2];
+	if (argc > 2)
+	{
+		//handling the first argument
+		if (strcmp(argv[1], "/?") == 0) 
+		{
+			Usage();
+			goto Exit;
+		}
+		else if (strcmp(argv[1], "-?") == 0)
+		{
+			Usage();
+			goto Exit;
+		}
+		else if (strcmp(argv[1], "-u") == 0)
+		{
+			bLoadOrUnload = FALSE;
+		}
+		else if (strcmp(argv[1], "-a") == 0)
+		{
+			bEscalateOfPrivilege = TRUE;
+		}
+		else if (strcmp(argv[1], "-e") == 0)
+		{
+			bEnableSeLoadDriverPrivilege = TRUE;
+		}
+		else 
+		{
+			Usage();
+			goto Exit;
+		}
+
+		//assign the driver service name
+		pbDriverServiceName = argv[2];
+	}
 
 	if (pbDriverServiceName == NULL) 
 	{
